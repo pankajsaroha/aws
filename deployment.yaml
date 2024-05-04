@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aws-docker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aws-docker
+  template:
+    metadata:
+      labels:
+        app: aws-docker
+    spec:
+      containers:
+        - name: aws-docker
+          image: pankajsaroha1/aws-docker:latest
+          ports:
+          - containerPort: 8080
